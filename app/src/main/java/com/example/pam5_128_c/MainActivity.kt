@@ -76,6 +76,7 @@ fun TampilLayout(
 fun TampilForm(){
     var textNama by remember { mutableStateOf("") }
     var textTlp by remember { mutableStateOf("") }
+    var textAlmt by remember { mutableStateOf("") }
 
     val context = LocalContext.current
     val dataForm: DataForm
@@ -97,7 +98,7 @@ fun TampilForm(){
         onSelectionChanged = {CobaViewModel().setJenisK(it)})
     Button(
         modifier = Modifier.fillMaxWidth(),
-        onClick = {CobaViewModel().InsertData(textNama, textTlp, dataForm.sex)}
+        onClick = {CobaViewModel().InsertData(textNama, textTlp, textAlmt, dataForm.sex)}
     ) {
         Text(text = stringResource(R.string.submit),
             fontSize = 16.sp
@@ -105,9 +106,10 @@ fun TampilForm(){
     }
     Spacer(modifier = Modifier.height(100.dp))
     TextHasil(
-    namanya = CobaViewModel().namausr,
-    telponnya = CobaViewModel().noTlp,
-    Jenisnya = CobaViewModel().jenisKl)
+        namanya = CobaViewModel().namausr,
+        telponnya = CobaViewModel().noTlp,
+        Jenisnya = CobaViewModel().jenisKl,
+        alamatnya = CobaViewModel().alamat)
 
 }
 
@@ -149,7 +151,7 @@ fun SelectJK(
 
 
 @Composable
-fun TextHasil(namanya:String,telponnya:String,Jenisnya:String) {
+fun TextHasil(namanya:String,telponnya:String, alamatnya:String, Jenisnya:String) {
     ElevatedCard (
         elevation = CardDefaults.cardElevation(
             defaultElevation = 6.dp
@@ -165,6 +167,11 @@ fun TextHasil(namanya:String,telponnya:String,Jenisnya:String) {
         )
         Text(
             text = "Telepon = " + telponnya,
+            modifier = Modifier
+                .padding(horizontal = 10.dp, vertical = 5.dp)
+        )
+        Text(
+            text = "Alamat = " + alamatnya,
             modifier = Modifier
                 .padding(horizontal = 10.dp, vertical = 5.dp)
         )
