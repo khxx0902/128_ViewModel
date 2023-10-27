@@ -109,7 +109,7 @@ fun TampilForm(){
         usernamenya = CobaViewModel().namausr,
         telponnya = CobaViewModel().noTlp,
         Jenisnya = CobaViewModel().jenisKl,
-        alamatnya = CobaViewModel().alamat)
+        emailnya = CobaViewModel().alamat)
 
 }
 
@@ -151,7 +151,7 @@ fun SelectJK(
 
 
 @Composable
-fun TextHasil(usernamenya:String,telponnya:String, alamatnya:String, Jenisnya:String) {
+fun TextHasil(usernamenya:String,telponnya:String, emailnya:String, Jenisnya:String) {
     ElevatedCard (
         elevation = CardDefaults.cardElevation(
             defaultElevation = 6.dp
@@ -171,7 +171,7 @@ fun TextHasil(usernamenya:String,telponnya:String, alamatnya:String, Jenisnya:St
                 .padding(horizontal = 10.dp, vertical = 5.dp)
         )
         Text(
-            text = "Alamat = " + alamatnya,
+            text = "Email = " + emailnya,
             modifier = Modifier
                 .padding(horizontal = 10.dp, vertical = 5.dp)
         )
