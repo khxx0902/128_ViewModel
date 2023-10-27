@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
+                    TampilLayout()
                 }
             }
         }
@@ -88,7 +88,7 @@ fun TampilForm(){
         singleLine = true,
         shape = MaterialTheme.shapes.large,
         modifier = Modifier.fillMaxWidth(),
-        label = { Text(text = "Nama Lengkap")},
+        label = { Text(text = "Username")},
         onValueChange = {
             textNama = it
         }
@@ -106,7 +106,7 @@ fun TampilForm(){
     }
     Spacer(modifier = Modifier.height(100.dp))
     TextHasil(
-        namanya = CobaViewModel().namausr,
+        usernamenya = CobaViewModel().namausr,
         telponnya = CobaViewModel().noTlp,
         Jenisnya = CobaViewModel().jenisKl,
         alamatnya = CobaViewModel().alamat)
@@ -151,7 +151,7 @@ fun SelectJK(
 
 
 @Composable
-fun TextHasil(namanya:String,telponnya:String, alamatnya:String, Jenisnya:String) {
+fun TextHasil(usernamenya:String,telponnya:String, alamatnya:String, Jenisnya:String) {
     ElevatedCard (
         elevation = CardDefaults.cardElevation(
             defaultElevation = 6.dp
@@ -161,7 +161,7 @@ fun TextHasil(namanya:String,telponnya:String, alamatnya:String, Jenisnya:String
     )
     {
         Text(
-            text = "Nama = " + namanya,
+            text = "Username = " + usernamenya,
             modifier = Modifier
                 .padding(horizontal = 10.dp, vertical = 4.dp)
         )
@@ -182,4 +182,10 @@ fun TextHasil(namanya:String,telponnya:String, alamatnya:String, Jenisnya:String
         )
 
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview(){
+    TampilLayout()
 }

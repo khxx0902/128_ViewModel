@@ -6,4 +6,9 @@ object DataSourches {
         R.string.laki,
         R.string.wanita
     )
+    val status = listOf(
+        "Belum Menikah",
+        "Sudah Menikah"
+    )
 }
+
